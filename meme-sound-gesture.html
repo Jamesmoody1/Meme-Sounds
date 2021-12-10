@@ -13,7 +13,7 @@
     var ooh_friend_snd = new Audio(https://meme-sounds-learning.s3.eu-west-2.amazonaws.com/friend.mp3);
     var mama_mia_snd = new Audio(https://meme-sounds-learning.s3.eu-west-2.amazonaws.com/mamamia.mp3);
     var good_soup_snd = new Audio(https://meme-sounds-learning.s3.eu-west-2.amazonaws.com/good-soup.mp3);
-    snd.loop = false;
+//    snd.loop = false;
     let model, webcam, labelContainer, maxPredictions;
 
     // Load the image model and setup the webcam
@@ -57,7 +57,7 @@
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-}
+        }
         if (prediction[0].probability > 0.7){
             ooh_friend_beep();
         } else {
