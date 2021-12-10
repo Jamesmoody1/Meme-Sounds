@@ -10,7 +10,10 @@
 
     // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/GpRDtpYAl/";
-
+    var ooh_friend_snd = new Audio(https://meme-sounds-learning.s3.eu-west-2.amazonaws.com/friend.mp3);
+    var mama_mia_snd = new Audio(https://meme-sounds-learning.s3.eu-west-2.amazonaws.com/mamamia.mp3);
+    var good_soup_snd = new Audio(https://meme-sounds-learning.s3.eu-west-2.amazonaws.com/good-soup.mp3);
+    snd.loop = false;
     let model, webcam, labelContainer, maxPredictions;
 
     // Load the image model and setup the webcam
@@ -54,6 +57,44 @@
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
+}
+        if (prediction[0].probability > 0.7){
+            ooh_friend_beep();
+        } else {
+            ooh_friend_stop();
         }
+        if (prediction[1].probability > 0.7){
+            mama_mia_beep();
+        } else {
+            mama_mia_stop();
+        }
+        if (prediction[2].probability > 0.7){
+            good_soup_beep();
+        } else {
+            good_soup_stop();
+        }
+    }
+    
+    function ooh_friend_beep() {
+        ooh_friend_snd.play();
+    }
+    function ooh_friend_stop() {
+        ooh_friend_snd.pause();
+        ooh_friend_snd.currentTime = 0;
+    }
+    function mama_mia_beep() {
+        mama_mia_snd.play();
+    }
+    function mama_mia_stop() {
+        mama_mia_snd.pause();
+        mama_mia_snd.currentTime = 0;
+    }
+
+    function good_soup_beep() {
+        good_soup_snd.play();
+    }
+    function good_soup_stop() {
+        good_soup_snd.pause();
+        good_soup_snd.currentTime = 0;
     }
 </script>
